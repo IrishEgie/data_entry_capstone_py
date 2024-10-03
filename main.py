@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import os
 import requests as rq
 import re  # For regex operations
+import form
 
 response = rq.get(os.getenv("ZILLOW_SCRAPE_LINK"))
 
@@ -56,5 +57,8 @@ f_rentals_link_list = []
 for link in rentals_link_soup:
     f_rentals_link_list.append(link['href'])
 print(f_rentals_link_list)
+
+
+
 
 
