@@ -45,21 +45,16 @@ for prop in rentals_properties_list:
     if prop:  # Checks if the list 'prop' is not empty
         formatted = " ".join(prop)
         f_rentals_properties_list.append(formatted)
-
-# Filter out any empty strings from the final list (just in case)
-f_rentals_properties_list = [entry for entry in f_rentals_properties_list if entry.strip()]
-
-print(f_rentals_properties_list)
+f_rentals_properties_list = [entry for entry in f_rentals_properties_list if entry.strip()] # Filter out any empty strings from the final list (just in case)
+# print(f_rentals_properties_list)
 
 
 # ----------------------------- Links ---------------------------- #
 rentals_link_soup = soup.find_all(name="a", href=True, class_= "StyledPropertyCardDataArea-anchor")
-rentals_link_list = [link.getText() for link in rentals_link_soup]
 
-f_rentals_price_list = []
-for price_tag in rentals_price_list:
-    str_price = re.sub('[^0-9]','', price_tag)
-    if len(str_price) > 4: 
-        str_price = str_price[:4]  
-    f_price = int(str_price)
-    f_rentals_price_list.append(f_price)
+f_rentals_link_list = []
+for link in rentals_link_soup:
+    f_rentals_link_list.append(link['href'])
+print(f_rentals_link_list)
+
+
