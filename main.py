@@ -12,7 +12,7 @@ f_rentals_link_list = soup_fetch.soup_fetch()[3]
 # print(len(f_rentals_properties_list))
 # print(len(f_rentals_link_list))
 
-# form.open_driver()
+form.initialize_driver()
 
 f_rentals_dict = {}
 for index in range(len(f_rentals_address_list)):
@@ -22,5 +22,5 @@ for index in range(len(f_rentals_address_list)):
     f_rentals_properties_list[index],
     f_rentals_link_list[index]
     )
-# form.form_quit()
 
+form.form_quit()
